@@ -1,4 +1,9 @@
 # Name Count
+>> Count the number lines each character spoke in a given play.
+
+>> The default play is Macbeth. The user can enter in an xml url file, to update the Chart to that play.
+
+
 
 ## Table of Contents
 
