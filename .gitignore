@@ -1,7 +1,6 @@
 node_modules
 .env
 public/build
-__test__/__snapshots__
 
 # Compiled source #
 ###################

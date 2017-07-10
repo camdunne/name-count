@@ -1,6 +1,7 @@
 import supertest from 'supertest';
 import app from '../server/app';
-import helper from '../server/helper';
+import getCount from '../server/utils/getCount';
+import sort from '../server/utils/sort';
 
 const sampleData = `<TITLE>Title</TITLE>
 <SPEECH>
@@ -10,6 +11,10 @@ const sampleData = `<TITLE>Title</TITLE>
 <LINE></LINE>
 <LINE></LINE>
 <LINE></LINE>
+<LINE></LINE>
+</SPEECH>
+<SPEECH>
+<SPEAKER>Bob</SPEAKER>
 <LINE></LINE>
 </SPEECH>
 <END></END>`;
@@ -23,20 +28,37 @@ describe('/GET macbeth', () => {
       });
     });
   });
-  xit('work', (done) => {
+  it('Test another path', (done) => {
     supertest(app)
-    .get('/api/macbeth').then((response) => {
+    .get('/other').then((response) => {
       expect(response.statusCode).toBe(200);
       done();
     });
   });
 });
 
-describe('check helper function', () => {
+describe('check the helper functions', () => {
   it('the file parser function should check for multiple speakers for the same lines', () => {
-    expect(helper(sampleData).title).toBe('Title');
-    expect(helper(sampleData).data.labels).toHaveLength(3);
-    expect(helper(sampleData).data.datasets[0].data).toHaveLength(3);
-    expect(helper(sampleData).data.datasets[0].data[0]).toBe(4);
+    const countObject = getCount(sampleData);
+    expect(countObject.title).toBe('Title');
+    expect(countObject.k).toHaveLength(3);
+    expect(countObject.v).toHaveLength(3);
+    expect(countObject.k[0]).toBe('Bob');
+    expect(countObject.v[0]).toBe(5);
+  });
+  it('the sort function should sort object values in descending order', () => {
+    const obj = {
+      a: 0,
+      b: 1,
+      c: 2,
+      beta: 1,
+      e: 4,
+      d: 3,
+      alpha: 0,
+    };
+    const key = JSON.stringify(sort(obj).k);
+    const value = JSON.stringify(sort(obj).v);
+    expect(key).toBe(JSON.stringify(['e', 'd', 'c', 'b', 'beta', 'a', 'alpha']));
+    expect(value).toBe(JSON.stringify([4, 3, 2, 1, 1, 0, 0]));
   });
 });

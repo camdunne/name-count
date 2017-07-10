@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Form /> renders correctly 1`] = `
+<center>
+  <form
+    onSubmit={[Function]}
+  >
+    <label
+      htmlFor="xmlfile"
+    >
+      Enter an xml file:  
+      <input
+        name="xmlfile"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </label>
+    <button
+      id="submit"
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</center>
+`;

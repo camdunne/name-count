@@ -13,7 +13,7 @@ const Form = ({ handleSubmit, handleChange, value }) => (
           onChange={handleChange}
         />
       </label>
-      <button id="submit" type="submit" value="Submit" />
+      <button id="submit" type="submit">{'Submit'}</button>
     </form>
   </center>
 );

@@ -5,15 +5,21 @@
   "author": "Cameron Dunne <camdunne@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test:mocha": "mocha --compilers js:babel-register --require ./test/helpers.js --require ./test/dom.js --recursive",
-    "test:jest": "jest -w",
+    "jest": "jest -w",
     "client": "webpack -w",
     "server": "nodemon -- node_modules/babel-cli/bin/babel-node.js server/server.js",
-    "start": "concurrently \"yarn run client\" \"yarn run server\""
+    "start": "concurrently \"yarn run client\" \"yarn run server\"",
+    "start:npm": "concurrently \"npm run client\" \"npm run server\""
+
   },
   "jest": {
     "transform": {
       ".*": "<rootDir>/node_modules/babel-jest"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
   },
   "dependencies": {
