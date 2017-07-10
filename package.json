@@ -6,10 +6,10 @@
   "license": "MIT",
   "scripts": {
     "test": "jest -w",
-    "start": "webpack -w",
+    "heroku-postbuild": "webpack -p --config ./webpack.config.babel.js --progress",
     "server": "nodemon -- node_modules/babel-cli/bin/babel-node.js server/server.js",
-    "dev:start": "concurrently \"yarn run client\" \"yarn run server\"",
-    "dev:npm": "concurrently \"npm run client\" \"npm run server\""
+    "start": "concurrently \"yarn run client\" \"yarn run server\"",
+    "start:npm": "concurrently \"npm run client\" \"npm run server\""
   },
   "jest": {
     "transform": {
