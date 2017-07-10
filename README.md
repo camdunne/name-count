@@ -33,7 +33,7 @@ npm install
 ### Running in Command Line
 To see Macbeth character lines:
 ```sh
-node server/utils/getCount.js
+node macbeth_analyzer.js
 ```
 ### Running Application
 Keep running in your terminal:

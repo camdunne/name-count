@@ -5,7 +5,7 @@ export default () => ({
   output: {
     path: resolve('public/build'),
     filename: 'bundle.js',
-    publicPath: '/public/build/',
+    publicPath: 'public/build/',
     pathinfo: true,
   },
   devtool: 'source-map',
