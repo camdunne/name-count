@@ -6,9 +6,9 @@
   "license": "MIT",
   "scripts": {
     "test": "jest -w",
-    "start": "webpack",
+    "client": "webpack",
     "server": "nodemon -- node_modules/babel-cli/bin/babel-node.js server/server.js",
-    "start:dev": "concurrently \"yarn run client\" \"yarn run server\"",
+    "start": "concurrently \"yarn run client\" \"yarn run server\"",
     "start:npm": "concurrently \"npm run client\" \"npm run server\""
   },
   "jest": {
