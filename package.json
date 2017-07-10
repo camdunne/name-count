@@ -11,8 +11,8 @@
     "test": "jest -w",
     "client": "webpack -w",
     "server": "nodemon -- node_modules/babel-cli/bin/babel-node.js server/server.js",
-    "start:dev": "concurrently \"yarn run client\" \"yarn run server\"",
-    "start:npm": "concurrently \"npm run client\" \"npm run server\"",
+    "dev": "concurrently \"yarn run client\" \"yarn run server\"",
+    "dev:npm": "concurrently \"npm run client\" \"npm run server\"",
     "start": "node -- node_modules/babel-cli/bin/babel-node.js server/server.js"
   },
   "jest": {

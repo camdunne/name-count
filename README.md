@@ -33,11 +33,11 @@ npm install
 ### Running Application
 Keep running in your terminal:
 ```sh
-yarn start
+yarn dev
 ```
 or, if you have npm:
 ```sh
-npm start:npm
+npm dev:npm
 ```
 ### Run Tests
 ```sh
