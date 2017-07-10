@@ -14,7 +14,18 @@ const sampleData = `<TITLE>Title</TITLE>
 <LINE></LINE>
 </SPEECH>
 <SPEECH>
+<SPEAKER>All</SPEAKER>
+<LINE></LINE>
+<LINE></LINE>
+</SPEECH>
+<SPEECH>
 <SPEAKER>Bob</SPEAKER>
+<LINE></LINE>
+</SPEECH>
+<SPEECH>
+<SPEAKER>ALL</SPEAKER>
+<LINE></LINE>
+<LINE></LINE>
 <LINE></LINE>
 </SPEECH>
 <END></END>`;
@@ -38,8 +49,8 @@ describe('/GET macbeth', () => {
 });
 
 describe('check the helper functions', () => {
+  const countObject = getCount(sampleData);
   it('the file parser function should check for multiple speakers for the same lines', () => {
-    const countObject = getCount(sampleData);
     expect(countObject.title).toBe('Title');
     expect(countObject.k).toHaveLength(3);
     expect(countObject.v).toHaveLength(3);
@@ -61,4 +72,9 @@ describe('check the helper functions', () => {
     expect(key).toBe(JSON.stringify(['e', 'd', 'c', 'b', 'beta', 'a', 'alpha']));
     expect(value).toBe(JSON.stringify([4, 3, 2, 1, 1, 0, 0]));
   });
+  it('the data should not include a speaker called \'all\'', () => {
+    expect(countObject.k).not.toContain('All');
+    expect(countObject.k).not.toContain('ALL');
+
+  })
 });

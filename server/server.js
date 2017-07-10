@@ -1,6 +1,10 @@
 import { config } from 'dotenv';
 import app from './app';
 
+if (process.env.NODE_ENV === 'production') {
+  process.env.NPM_CONFIG_PRODUCTION = false;
+}
+
 config();
 
 const server = app.listen(process.env.PORT || 8000, () => {
