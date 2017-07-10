@@ -1,4 +1,5 @@
 # Name Count
+[![Travis](https://img.shields.io/travis/camdunne/name-count.svg?style=flat)](https://travis-ci.org/camdunne/name-count.svg?branch=master)
 > Count the number lines each character spoke in a given play.
 > The default play is Macbeth. The user can enter in an xml url file in order to update the displayed chart.
 
