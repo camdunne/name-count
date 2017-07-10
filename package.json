@@ -10,10 +10,10 @@
   "scripts": {
     "test": "jest -w",
     "client": "webpack -w",
-    "server": "nodemon -- node_modules/babel-cli/bin/babel-node.js server/server.js",
+    "server": "nodemon server/server.js",
     "dev": "concurrently \"yarn run client\" \"yarn run server\"",
     "dev:npm": "concurrently \"npm run client\" \"npm run server\"",
-    "start": "node -- node_modules/babel-cli/bin/babel-node.js server/server.js"
+    "start": "node  server/server.js"
   },
   "jest": {
     "transform": {

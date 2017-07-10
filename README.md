@@ -30,6 +30,11 @@ From within the root directory run the following:
 ```sh
 npm install
 ```
+### Running in Command Line
+To see Macbeth character lines:
+```sh
+node server/utils/getCount.js
+```
 ### Running Application
 Keep running in your terminal:
 ```sh
