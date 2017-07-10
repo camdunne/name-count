@@ -11,8 +11,9 @@
 2. [Requirements](#requirements)
 3. [Development](#development)
     1. [Installing Dependencies](#installing-dependencies)
-    2. [Running Application](#running-application)
-    3. [Run Tests](#run-tests)
+    2. [Running in Command Line](#running-in-command-line)
+    3. [Running Application](#running-application)
+    4. [Run Tests](#run-tests)
 4. [Support](#support)
 
 ## Our Team
