@@ -1,7 +1,6 @@
 # Name Count
->> Count the number lines each character spoke in a given play.
-
->> The default play is Macbeth. The user can enter in an xml url file, to update the Chart to that play.
+> Count the number lines each character spoke in a given play.
+> The default play is Macbeth. The user can enter in an xml url file in order to update the displayed chart.
 
 
 
@@ -41,7 +40,7 @@ npm start:npm
 ```
 ### Run Tests
 ```sh
-npm run jest
+npm run test
 ```
 
 ## Support

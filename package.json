@@ -5,7 +5,7 @@
   "author": "Cameron Dunne <camdunne@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "jest": "jest -w",
+    "test": "jest -w",
     "client": "webpack -w",
     "server": "nodemon -- node_modules/babel-cli/bin/babel-node.js server/server.js",
     "start": "concurrently \"yarn run client\" \"yarn run server\"",
