@@ -4,13 +4,16 @@
   "main": "server.js",
   "author": "Cameron Dunne <camdunne@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": "7.4.0"
+  },
   "scripts": {
     "test": "jest -w",
     "client": "webpack -w",
     "server": "nodemon -- node_modules/babel-cli/bin/babel-node.js server/server.js",
     "start:dev": "concurrently \"yarn run client\" \"yarn run server\"",
     "start:npm": "concurrently \"npm run client\" \"npm run server\"",
-    "start": "node server/server.js"
+    "start": "node -- node_modules/babel-cli/bin/babel-node.js server/server.js"
   },
   "jest": {
     "transform": {
