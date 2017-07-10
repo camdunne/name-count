@@ -1,7 +1,7 @@
-import morgan from 'morgan';
-import { urlencoded, json } from 'body-parser';
+const morgan = require('morgan');
+const { urlencoded, json } = require('body-parser');
 
-export default (app) => {
+module.exports = (app) => {
   app.use(morgan('dev'));
   app.use(urlencoded({ extended: true }));
   app.use(json());

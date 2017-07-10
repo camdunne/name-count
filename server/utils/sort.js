@@ -1,4 +1,4 @@
-export default (obj) => {
+module.exports = (obj) => {
   const sorted = [];
   Object.keys(obj).forEach((key) => {
     sorted.push([key, obj[key]]);

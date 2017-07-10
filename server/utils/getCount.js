@@ -1,6 +1,7 @@
-import sort from './sort';
+const sort = require('./sort');
+const axios = require('axios');
 
-export default (data) => {
+module.exports = (data) => {
   let title = data.split('<TITLE>')[1];
   title = title.slice(0, title.indexOf('<'));
   const cache = {};
@@ -25,9 +26,16 @@ export default (data) => {
     return 0;
   }, 0);
   const { k, v } = sort(cache);
+  k.forEach((key, i) => {
+    console.log(v[i], key);
+  });
   return {
     title,
     k,
     v,
   };
 };
+
+axios.get('http://www.ibiblio.org/xml/examples/shakespeare/macbeth.xml')
+.then(({ data }) => { module.exports(data); })
+.catch(err => console.error(err));

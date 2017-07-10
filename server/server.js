@@ -1,11 +1,6 @@
-import { config } from 'dotenv';
-import app from './app';
+const app = require('./app');
 
-if (process.env.NODE_ENV === 'production') {
-  process.env.NPM_CONFIG_PRODUCTION = false;
-}
-
-config();
+require('dotenv').config();
 
 const server = app.listen(process.env.PORT || 8000, () => {
   const host = server.address().address;

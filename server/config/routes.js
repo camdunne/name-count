@@ -1,6 +1,6 @@
-import { root, macbeth, xml } from '../controllers';
+const { root, macbeth, xml } = require('../controllers');
 
-export default (app) => {
+module.exports = (app) => {
   app.get('/', root);
   app.get('/api/macbeth', macbeth);
   app.post('/api/xml', xml);
