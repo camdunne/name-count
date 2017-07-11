@@ -48,10 +48,22 @@ class Splash extends Component {
     if (/.*\.xml$/.test(this.state.value)) {
       axios.post('/api/xml', { xmlfile: this.state.value })
         .then(({ data }) => {
+          const { title, k, v } = data;
           this.setState({
             error: null,
-            data: data.data,
-            title: data.title,
+            fetched: true,
+            data: {
+              labels: k,
+              datasets: [{
+                backgroundColor: 'rgba(255,99,132,0.2)',
+                borderColor: 'rgba(255,99,132,1)',
+                borderWidth: 1,
+                hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+                hoverBorderColor: 'rgba(255,99,132,1)',
+                data: v,
+              }],
+            },
+            title,
           });
         })
         .catch((err) => { console.error(err); });
