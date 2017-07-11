@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import shape from '../utils/shape';
 import Form from '../components/Form';
 import Chart from '../components/Chart';
 
@@ -21,20 +21,10 @@ class Splash extends Component {
   componentDidMount() {
     axios.get('/api/macbeth')
       .then(({ data }) => {
-        const { title, k, v } = data;
+        const { info, title } = shape(data);
         this.setState({
           fetched: true,
-          data: {
-            labels: k,
-            datasets: [{
-              backgroundColor: 'rgba(255,99,132,0.2)',
-              borderColor: 'rgba(255,99,132,1)',
-              borderWidth: 1,
-              hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-              hoverBorderColor: 'rgba(255,99,132,1)',
-              data: v,
-            }],
-          },
+          data: info,
           title,
         });
       })
@@ -48,21 +38,11 @@ class Splash extends Component {
     if (/.*\.xml$/.test(this.state.value)) {
       axios.post('/api/xml', { xmlfile: this.state.value })
         .then(({ data }) => {
-          const { title, k, v } = data;
+          const { info, title } = shape(data);
           this.setState({
             error: null,
             fetched: true,
-            data: {
-              labels: k,
-              datasets: [{
-                backgroundColor: 'rgba(255,99,132,0.2)',
-                borderColor: 'rgba(255,99,132,1)',
-                borderWidth: 1,
-                hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-                hoverBorderColor: 'rgba(255,99,132,1)',
-                data: v,
-              }],
-            },
+            data: info,
             title,
           });
         })
